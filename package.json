@@ -5,11 +5,13 @@
   "scripts": {
     "dev": "vitepress --host 127.0.0.1",
     "build": "vitepress build",
-    "copy:site": "node scripts/copy-dist-to-site.mjs",
-    "publish": "npm run build && npm run copy:site",
+    "build:github": "node scripts/build-github-pages.mjs",
+    "copy:docs": "node scripts/copy-dist-to-docs.mjs",
+    "publish": "npm run build && npm run copy:docs",
+    "publish:github": "npm run build:github && npm run copy:docs",
     "preview": "vitepress preview --host 127.0.0.1",
     "serve:static": "python -m http.server 5174 --directory .vitepress/dist",
-    "serve:site": "python -m http.server 5175 --directory site"
+    "serve:docs": "python -m http.server 5175 --directory docs"
   },
   "devDependencies": {
     "vitepress": "^1.6.4"

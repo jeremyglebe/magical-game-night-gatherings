@@ -3,6 +3,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: 'MTG Game Night',
   description: 'A fan-made catalogue of Magic: The Gathering game-night formats and boxed-set ideas.',
+  base: process.env.VITEPRESS_BASE ?? '/',
   cleanUrls: false,
   srcExclude: ['**/README.md'],
   lastUpdated: true,

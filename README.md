@@ -44,7 +44,7 @@ The publishable website will be generated in:
 
 Upload the contents of `.vitepress/dist/` to a static host such as GitHub Pages, Netlify, Cloudflare Pages, or any ordinary web host. Do not upload the source Markdown files as the finished site unless the host is configured to run `npm run build` for you.
 
-If you want a git-visible copy of the built site, run:
+If you want a git-visible copy of the built site for local/root hosting, run:
 
 ```bash
 npm run publish
@@ -53,10 +53,10 @@ npm run publish
 That builds the site and copies the output into:
 
 ```text
-site/
+docs/
 ```
 
-The `site/` folder is safe to track in git. VitePress has been configured not to treat root-level publish folders as source assets.
+The `docs/` folder is safe to track in git and can be used directly by GitHub Pages.
 
 For local static testing, the server's document root must be `.vitepress/dist/`.
 
@@ -80,10 +80,10 @@ http://127.0.0.1:5174/
 
 If you use a Live Server extension from the repo root and open `.vitepress/dist/index.html` as a nested path, the site may look unstyled because the generated HTML expects `/assets/...` to be served from the web root. Either open `.vitepress/dist/` as the served folder, or use `npm run preview`.
 
-To test the tracked `site/` copy:
+To test the tracked `docs/` copy:
 
 ```bash
-npm run serve:site
+npm run serve:docs
 ```
 
 Then open:
@@ -91,6 +91,39 @@ Then open:
 ```text
 http://127.0.0.1:5175/
 ```
+
+Use this local static test after `npm run publish`. If you build for GitHub project Pages with `npm run publish:github`, the generated site expects to live under `/mtg-game-night/`, which matches GitHub Pages but not a plain local server rooted at `docs/`.
+
+## GitHub Pages
+
+GitHub Pages can publish from the `/docs` folder on your `main` branch.
+
+In GitHub:
+
+1. Go to the repository's **Settings**.
+2. Open **Pages**.
+3. Under **Build and deployment**, set **Source** to **Deploy from a branch**.
+4. Set the branch to `main`.
+5. Set the folder to `/docs`.
+6. Save.
+
+For a normal project Pages URL like:
+
+```text
+https://YOUR-USER.github.io/mtg-game-night/
+```
+
+build the docs folder with:
+
+```bash
+npm run publish:github
+```
+
+That sets the VitePress base path to `/mtg-game-night/`, copies the build into `docs/`, and makes GitHub Pages asset paths resolve correctly.
+
+Commit and push the updated `docs/` folder after running that command.
+
+If you later use a custom domain or a `YOUR-USER.github.io` user site where the site lives at `/`, use `npm run publish` instead.
 
 ## Sections
 
