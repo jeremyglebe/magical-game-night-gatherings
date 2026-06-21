@@ -54,6 +54,7 @@ export default defineConfig({
               { text: "Pile o' Magic", link: '/formats/big-deck/pile-o-magic/' }
             ]
           },
+          { text: 'Creature Feature', link: '/formats/creature-feature/' },
           { text: 'Cube', link: '/formats/cube/' },
           {
             text: 'Horde',
