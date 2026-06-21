@@ -4,7 +4,9 @@ Boxed sets are personal, prebuilt game-night packages. They are not products; th
 
 ## Current Sets
 
-- [Feudalism](feudalism.md): A BANG/Treachery-like monarch variant concept.
+| Set | Base format | Brief | Sub variants / status |
+| --- | --- | --- | --- |
+| [Feudalism](feudalism.md) | [BANG-like hidden-role formats](../formats/bang-like/) | Monarch-focused hidden-role concept where the King keeps reclaiming the crown until the table breaks that power structure. | Concept sketch. Open variant knobs include role mix, win conditions, King bonuses, monarchy reveal rules, role triggers, and final deck count. |
 
 ## Suggested Page Shape
 
